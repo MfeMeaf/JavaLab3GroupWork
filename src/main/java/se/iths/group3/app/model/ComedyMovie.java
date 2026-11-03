@@ -3,7 +3,6 @@ package se.iths.group3.app.model;
 public class ComedyMovie extends Movie {
 
     public ComedyMovie() {
-        super();
     }
 
     public ComedyMovie(String title, int id) {
