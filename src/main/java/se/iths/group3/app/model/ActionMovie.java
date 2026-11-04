@@ -18,4 +18,5 @@ public class ActionMovie extends Movie {
     public Object getId() {
         return id;
     }
+
 }
