@@ -20,9 +20,8 @@ public class HorrorMovieStorage implements MovieStorage<HorrorMovie> {
 
     @Override
     public void save(HorrorMovie movie) throws IOException {
-        List<HorrorMovie> movies = mapper.readValue(path.toFile(),
-                new TypeReference<List<HorrorMovie>>() {
-                });
+        if(findById(movie.getID()) != null){return;}
+        List<HorrorMovie> movies = findAll();
         movies.add(movie);
         mapper.writerWithDefaultPrettyPrinter()
                 .writeValue(path.toFile(),movies);
