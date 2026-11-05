@@ -63,7 +63,7 @@ public class ActionMovieStorage implements MovieStorage<ActionMovie> {
     }
 
     @Override
-    public static ActionMovie findById(int id) throws IOException {
+    public  ActionMovie findById(int id) throws IOException {
         return null;
     }
 }
