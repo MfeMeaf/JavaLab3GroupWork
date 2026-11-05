@@ -41,6 +41,7 @@ public class ActionMovieStorageTest {
         assertEquals("Austin Powers", actionMovieStorage.findAll().get(0).getTitle());
     }
 
+
     @Test
     @DisplayName("Nothing is saved, use findall()")
     void findAllEmptyList() throws IOException{
