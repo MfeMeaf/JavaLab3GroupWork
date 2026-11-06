@@ -63,7 +63,9 @@ public class ActionMovieStorage implements MovieStorage<ActionMovie> {
     }
 
     @Override
-    public  ActionMovie findById(int id) throws IOException {
-        return null;
+    public ActionMovie findById(int id) throws IOException {
+        return findAll().stream().filter(actionMovie -> actionMovie.getID() == id)
+                .findFirst()
+                .orElse(null);
     }
 }
