@@ -3,6 +3,7 @@ package se.iths.group3.app.storage;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import se.iths.group3.app.model.ActionMovie;
+import se.iths.group3.app.model.HorrorMovie;
 import se.iths.group3.app.model.Movie;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -63,7 +64,9 @@ public class ActionMovieStorage implements MovieStorage<ActionMovie> {
     }
 
     @Override
-    public  ActionMovie findById(int id) throws IOException {
-        return null;
+    public ActionMovie findById(int id) throws IOException {
+        return findAll().stream().filter(actionMovie -> actionMovie.getID() == id)
+                .findFirst()
+                .orElse(null);
     }
 }
