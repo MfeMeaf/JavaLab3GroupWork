@@ -1,10 +1,7 @@
 package se.iths.group3.app;
 
 import se.iths.group3.app.model.*;
-import se.iths.group3.app.storage.ActionMovieStorage;
-import se.iths.group3.app.storage.ComedyMovieStorage;
-import se.iths.group3.app.storage.HorrorMovieStorage;
-import se.iths.group3.app.storage.MovieStorage;
+import se.iths.group3.app.storage.*;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -41,11 +38,11 @@ public class Main {
                         horrorMovieStorage.save(new HorrorMovie(movie, id));
                     }
                 }
-//                case "dramamovie" -> {
-//                    if (storage instanceof DramaMovieStorage dramaMovieStorage) {
-//                        dramaMovieStorage.save(new DramaMovie(movie, id));
-//                    }
-//                }
+                case "dramamovie" -> {
+                    if (storage instanceof DramaMovieStorage dramaMovieStorage) {
+                        dramaMovieStorage.save(new DramaMovie(movie, id));
+                    }
+                }
                 case "actionmovie" -> {
                     if (storage instanceof ActionMovieStorage actionMovieStorage) {
                         actionMovieStorage.save(new ActionMovie(id, movie));
