@@ -16,11 +16,18 @@ public class Main {
 
         MovieStorage<HorrorMovie> horrorMovies = new HorrorMovieStorage(Path.of(("data"), "horror-movies.json"));
 
+
+        MovieStorage<ActionMovie> actionMovies = new ActionMovieStorage(Path.of(("data"), "action-movies.json"));
+
+
         try {
             saveMovies(comedyMovies, "Comedymovie", new String[]
                     {"Austin Powers", "Ace Ventura", "Dumb and Dumber", "Step Brothers", "Elf"});
 
             saveMovies(horrorMovies, "Horrormovie", new String[]{"IT", "Scary Movie 4", "In the mouth of madness", "The Shining", "The Thing"});
+
+            saveMovies(actionMovies, "Actionmovie", new String[]
+                    {"John Wick" , "Skyfall", "Spider-Man", "Batman Begins", "Transformers"});
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }
