@@ -5,6 +5,8 @@ import se.iths.group3.app.storage.*;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     static void main() {
@@ -21,6 +23,81 @@ public class Main {
             saveMovies(horrorMovies, "Horrormovie", new String[]{"IT", "Scary Movie 4", "In the mouth of madness", "The Shining", "The Thing"});
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
+        }
+
+        while (true) {
+
+
+            String choice = IO.readln("""
+                    
+                    1. Visa filmer i en viss kategori
+                    2. Visa alla filmer
+                    0. Avsluta
+                    
+                    """);
+
+            switch (choice) {
+                case "1" -> {
+
+                    String categoryChoice = IO.readln("""
+                            
+                            1. Action
+                            2. Comedy
+                            3. Drama
+                            4. Horror
+                            
+                            """);
+
+                    try {
+                        switch (categoryChoice) {
+//                            case "1" -> actionMovies.findAll()
+//                                    .forEach(movie -> IO.println("Id: " + movie.getID()
+//                                    + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
+//                                    + "\n---------------------------------"));
+                            case "2" -> comedyMovies.findAll()
+                                    .forEach(movie -> IO.println("Id: " + movie.getID()
+                                    + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
+                                    + "\n---------------------------------"));
+//                            case "3" -> dramaMovies.findAll()
+//                                    .forEach(movie -> IO.println("Id: " + movie.getID()
+//                                    + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
+//                                    + "\n---------------------------------"));
+                            case "4" -> horrorMovies.findAll()
+                                    .forEach(movie -> IO.println("Id: " + movie.getID()
+                                    + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
+                                    + "\n---------------------------------"));
+                        }
+
+                    } catch (IOException e) {
+                        System.err.println("Filmerna kunde inte hämtas: " + e.getMessage());
+                    }
+
+                }
+                case "2" -> {
+
+                    List<Movie> allMovies = new ArrayList<>();
+
+                    try {
+                        allMovies.addAll(comedyMovies.findAll());
+                        allMovies.addAll(horrorMovies.findAll());
+//                        allMovies.addAll(dramaMovies.findAll());
+//                        allMovies.addAll(actionMovies.findAll());
+
+                        allMovies.forEach(movie -> IO.println("Id: " + movie.getID()
+                                + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
+                        + "\n---------------------------------"));
+
+                    } catch (IOException e) {
+                        System.err.println("Listan kunde inte läsas: " + e.getMessage());
+                    }
+
+                }
+                case "0" -> {
+                    return;
+                }
+                default -> IO.readln("Fel! mata in korrekt val i menyn.");
+            }
+
         }
 
     }
