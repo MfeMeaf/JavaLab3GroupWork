@@ -16,6 +16,7 @@ public class Main {
 
         MovieStorage<HorrorMovie> horrorMovies = new HorrorMovieStorage(Path.of(("data"), "horror-movies.json"));
 
+        MovieStorage<DramaMovie> dramaMovies = new DramaMovieStorage(Path.of(("data"), "drama-movies.json"));
 
         MovieStorage<ActionMovie> actionMovies = new ActionMovieStorage(Path.of(("data"), "action-movies.json"));
 
@@ -57,18 +58,18 @@ public class Main {
 
                     try {
                         switch (categoryChoice) {
-//                            case "1" -> actionMovies.findAll()
-//                                    .forEach(movie -> IO.println("Id: " + movie.getID()
-//                                    + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
-//                                    + "\n---------------------------------"));
+                            case "1" -> actionMovies.findAll()
+                                    .forEach(movie -> IO.println("Id: " + movie.getID()
+                                    + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
+                                    + "\n---------------------------------"));
                             case "2" -> comedyMovies.findAll()
                                     .forEach(movie -> IO.println("Id: " + movie.getID()
                                     + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
                                     + "\n---------------------------------"));
-//                            case "3" -> dramaMovies.findAll()
-//                                    .forEach(movie -> IO.println("Id: " + movie.getID()
-//                                    + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
-//                                    + "\n---------------------------------"));
+                            case "3" -> dramaMovies.findAll()
+                                    .forEach(movie -> IO.println("Id: " + movie.getID()
+                                    + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
+                                    + "\n---------------------------------"));
                             case "4" -> horrorMovies.findAll()
                                     .forEach(movie -> IO.println("Id: " + movie.getID()
                                     + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
@@ -87,8 +88,8 @@ public class Main {
                     try {
                         allMovies.addAll(comedyMovies.findAll());
                         allMovies.addAll(horrorMovies.findAll());
-//                        allMovies.addAll(dramaMovies.findAll());
-//                        allMovies.addAll(actionMovies.findAll());
+                        allMovies.addAll(dramaMovies.findAll());
+                        allMovies.addAll(actionMovies.findAll());
 
                         allMovies.forEach(movie -> IO.println("Id: " + movie.getID()
                                 + "\nTitel: " + movie.getTitle() + "\nKategori: " + movie.category()
